@@ -1,0 +1,35 @@
+<div id="wrap"></div>
+<style>
+	#wrap {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	#wrap > div {
+		width: 10px;
+		height: 10px;
+		outline: 1px solid #888;
+		float: left;
+	}
+
+</style>
+<script>
+	window.addEventListener("load", () => {
+		let wrap = document.querySelector("#wrap");
+		let startDate = new Date(Date.parse("2020.01.01"));
+		let endDate = new Date(Date.parse("2025.12.31"));
+		let currDate = new Date();
+
+		let n = (endDate-startDate) / 86400000;
+		let curr = Math.floor(new Date - startDate) / 86400000;
+
+		for (let i=0; i<n; i++) {
+			let d = document.createElement("div");
+
+			if (i < curr) {
+				d.style.background = '#ccc';
+			}
+
+			wrap.appendChild(d);
+		}
+	});
+</script>
